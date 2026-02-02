@@ -1,0 +1,61 @@
+CREATE TABLE IF NOT EXISTS Treinador (
+	id INTEGER PRIMARY KEY,
+	nome VARCHAR(255) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Time_Pokemon (
+	id INTEGER PRIMARY KEY,
+	treinador_id INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Time_Pokemon_Selecao (
+	id INTEGER PRIMARY KEY,
+	time_pokemon_id INTEGER NOT NULL,
+	posicao INTEGER NOT NULL CHECK (posicao BETWEEN 1 AND 6),
+	pokedex_id INTEGER NOT NULL,
+	
+    	UNIQUE (time_pokemon_id, posicao)
+);
+
+CREATE TABLE IF NOT EXISTS PokeDex (
+	id INTEGER PRIMARY KEY,
+	nome VARCHAR(255) NOT NULL,
+	tipo_id INTEGER NOT NULL,
+	tipo_2_id INTEGER NULL,
+	move_id INTEGER NOT NULL,
+	geracao_id INTEGER NOT NULL,
+	raridade_id INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Tipo (
+	id INTEGER PRIMARY KEY,
+	nome VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Movimento (
+	id INTEGER PRIMARY KEY,
+	nome VARCHAR(75) NOT NULL,
+	power INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Geracao (
+	id INTEGER PRIMARY KEY,
+	nome VARCHAR(50) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Raridade (
+  	id INTEGER PRIMARY KEY,
+  	nome VARCHAR(50) NOT NULL
+);
+ALTER TABLE PokeDex
+ADD FOREIGN KEY (tipo_id) REFERENCES Tipo(id);
+ALTER TABLE PokeDex
+ADD FOREIGN KEY (tipo_2_id) REFERENCES Tipo(id);
+ALTER TABLE PokeDex
+ADD FOREIGN KEY (move_id) REFERENCES Movimento(id);
+ALTER TABLE PokeDex
+ADD FOREIGN KEY (geracao_id) REFERENCES Geracao(id);
+ALTER TABLE PokeDex
+ADD FOREIGN KEY (raridade_id) REFERENCES Raridade(id);
+ALTER TABLE Time_Pokemon
+ADD FOREIGN KEY (treinador_id) REFERENCES Treinador(id);
+ALTER TABLE Time_Pokemon_Selecao
+ADD FOREIGN KEY (time_pokemon_id) REFERENCES Time_Pokemon(id);
+ALTER TABLE Time_Pokemon_Selecao
+ADD FOREIGN KEY (pokedex_id) REFERENCES PokeDex(id)
