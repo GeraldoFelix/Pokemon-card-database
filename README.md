@@ -5,7 +5,7 @@ Projeto de Banco de Dados desenvolvido para a disciplina **Banco de Dados I**
 do curso de **Análise e Desenvolvimento de Sistemas – IFPB**.
 
 ## 👥 Equipe
-- Geraldo Felix da Silva Junior
+- Geraldo Felix da Silva Junior 
 - Pedro Henrique de Sousa Dantas Gomes
 - Gabriel Melo do Nascimento
 
