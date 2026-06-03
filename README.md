@@ -1,5 +1,5 @@
 # Pokemon-card-database
-# Sistema de Batalhas Pokémon - CARD
+# Sistema de Batalhas Pokémon
 
 Projeto de Banco de Dados desenvolvido para a disciplina **Banco de Dados I**
 do curso de **Análise e Desenvolvimento de Sistemas – IFPB**.
